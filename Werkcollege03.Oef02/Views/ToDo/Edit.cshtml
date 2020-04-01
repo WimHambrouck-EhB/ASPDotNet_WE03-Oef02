@@ -20,7 +20,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Omschrijving" class="control-label"></label>
-                <input asp-for="Omschrijving" class="form-control" />
+                @*<input asp-for="Omschrijving" class="form-control" />*@
+                @* Zelfs al is Omschrijving geannoteerd met DataType.MultilineText (zie modelklasse),
+                    verschijnt dit niet standaard als textarea, dus moeten we manueel ingrijpen.
+                    https://github.com/aspnet/Tooling/issues/319 *@
+                <textarea asp-for="Omschrijving" class="form-control"></textarea>
                 <span asp-validation-for="Omschrijving" class="text-danger"></span>
             </div>
             <div class="form-group">

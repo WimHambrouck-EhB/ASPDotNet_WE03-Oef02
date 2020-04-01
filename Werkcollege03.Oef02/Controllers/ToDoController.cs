@@ -86,7 +86,7 @@ namespace Werkcollege03.Oef02.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Titel,Omschrijving")] ToDo toDo)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Titel,Omschrijving")] ToDo toDo)
         {
             if (id != toDo.ID)
             {
