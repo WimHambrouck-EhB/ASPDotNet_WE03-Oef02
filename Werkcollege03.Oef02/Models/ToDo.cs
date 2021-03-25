@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +11,8 @@ namespace Werkcollege03.Oef02.Models
         public ToDo()
         {
             Datum = DateTime.Now;
+            // seconden en milliseconden op 0 zetten (we gaan er vanuit dat gebruikers to-dos niet op de seconde of milliseconde willen plannen)
+            Datum = Datum.AddMilliseconds(-Datum.Millisecond).AddSeconds(-Datum.Second);
         }
         public int ID { get; set; }
         public string Titel { get; set; }

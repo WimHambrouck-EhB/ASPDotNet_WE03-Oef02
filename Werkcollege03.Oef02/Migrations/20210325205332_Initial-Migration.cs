@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Werkcollege03.Oef02.Migrations
@@ -13,7 +12,7 @@ namespace Werkcollege03.Oef02.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Titel = table.Column<string>(nullable: true),
                     Datum = table.Column<DateTime>(nullable: false),
                     Omschrijving = table.Column<string>(nullable: true)

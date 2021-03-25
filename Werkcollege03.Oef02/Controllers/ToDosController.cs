@@ -10,22 +10,22 @@ using Werkcollege03.Oef02.Models;
 
 namespace Werkcollege03.Oef02.Controllers
 {
-    public class ToDoController : Controller
+    public class ToDosController : Controller
     {
         private readonly Werkcollege03Oef02Context _context;
 
-        public ToDoController(Werkcollege03Oef02Context context)
+        public ToDosController(Werkcollege03Oef02Context context)
         {
             _context = context;
         }
 
-        // GET: ToDo
+        // GET: ToDos
         public async Task<IActionResult> Index()
         {
             return View(await _context.ToDo.ToListAsync());
         }
 
-        // GET: ToDo/Details/5
+        // GET: ToDos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,18 +43,18 @@ namespace Werkcollege03.Oef02.Controllers
             return View(toDo);
         }
 
-        // GET: ToDo/Create
+        // GET: ToDos/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new ToDo());
         }
 
-        // POST: ToDo/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: ToDos/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Titel,Omschrijving")] ToDo toDo)
+        public async Task<IActionResult> Create([Bind("ID,Titel,Datum,Omschrijving")] ToDo toDo)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Werkcollege03.Oef02.Controllers
             return View(toDo);
         }
 
-        // GET: ToDo/Edit/5
+        // GET: ToDos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,12 +81,12 @@ namespace Werkcollege03.Oef02.Controllers
             return View(toDo);
         }
 
-        // POST: ToDo/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: ToDos/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Titel,Omschrijving")] ToDo toDo)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Titel,Datum,Omschrijving")] ToDo toDo)
         {
             if (id != toDo.ID)
             {
@@ -116,7 +116,7 @@ namespace Werkcollege03.Oef02.Controllers
             return View(toDo);
         }
 
-        // GET: ToDo/Delete/5
+        // GET: ToDos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +134,7 @@ namespace Werkcollege03.Oef02.Controllers
             return View(toDo);
         }
 
-        // POST: ToDo/Delete/5
+        // POST: ToDos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

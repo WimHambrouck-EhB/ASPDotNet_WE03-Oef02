@@ -10,14 +10,14 @@ using Werkcollege03.Oef02.Data;
 namespace Werkcollege03.Oef02.Migrations
 {
     [DbContext(typeof(Werkcollege03Oef02Context))]
-    [Migration("20200401102648_Initial-Migration")]
+    [Migration("20210325205332_Initial-Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
+                .HasAnnotation("ProductVersion", "3.1.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -25,13 +25,17 @@ namespace Werkcollege03.Oef02.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("Datum");
+                    b.Property<DateTime>("Datum")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Omschrijving");
+                    b.Property<string>("Omschrijving")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Titel");
+                    b.Property<string>("Titel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
