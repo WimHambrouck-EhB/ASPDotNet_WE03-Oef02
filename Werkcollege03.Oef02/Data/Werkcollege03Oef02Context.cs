@@ -14,6 +14,6 @@ namespace Werkcollege03.Oef02.Data
         {
         }
 
-        public DbSet<Werkcollege03.Oef02.Models.ToDo> ToDo { get; set; }
+        public DbSet<ToDo> ToDo { get; set; }
     }
 }
