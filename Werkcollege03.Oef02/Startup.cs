@@ -55,7 +55,7 @@ namespace Werkcollege03.Oef02
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=ToDos}/{action=Index}/{id?}");
             });
         }
     }
